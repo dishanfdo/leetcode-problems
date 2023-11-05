@@ -11,15 +11,15 @@ class KRadiusSubarrayAverages {
             return averages
         }
 
-        var sum = 0
+        var sum: Long = 0
         for (i in 0 ..< wSize) {
             sum += nums[i]
         }
-        averages[k] = sum / wSize
+        averages[k] = (sum / wSize.toLong()).toInt()
 
         for (i in wSize ..< n) {
             sum = sum + nums[i] - nums[i - wSize]
-            averages[i - k] = sum / wSize
+            averages[i - k] = (sum / wSize.toLong()).toInt()
         }
 
         return averages
